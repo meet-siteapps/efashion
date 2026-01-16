@@ -7,7 +7,8 @@ export default defineConfig({
     port: 3001,
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
+        // target: 'http://localhost:5000',
+        target: 'https://efashion-3drf.onrender.com',
         changeOrigin: true
       }
     }
