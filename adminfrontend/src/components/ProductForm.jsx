@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import api from '../config/api'
 
 const ProductForm = ({ product, onClose }) => {
   const [formData, setFormData] = useState({
@@ -50,10 +50,10 @@ const ProductForm = ({ product, onClose }) => {
     
     try {
       if (product) {
-        await axios.put(`/api/products/${product._id}`, formData)
+        await api.put(`/api/products/${product._id}`, formData)
         alert('Product updated successfully!')
       } else {
-        await axios.post('/api/products', formData)
+        await api.post('/api/products', formData)
         alert('Product created successfully!')
       }
       onClose()

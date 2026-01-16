@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import api from '../config/api'
 import ProductCard from '../components/ProductCard'
 import AnimatedBackground from '../components/AnimatedBackground'
 
@@ -15,7 +15,7 @@ const Home = () => {
   const fetchProducts = async () => {
     try {
       setLoading(true)
-      const { data } = await axios.get('/api/products')
+      const { data } = await api.get('/api/products')
       setProducts(data.products)
     } catch (error) {
       console.error('Error fetching products:', error)

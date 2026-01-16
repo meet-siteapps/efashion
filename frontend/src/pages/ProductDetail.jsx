@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import axios from 'axios'
+import api from '../config/api'
 
 const ProductDetail = () => {
   const { id } = useParams()
@@ -15,7 +15,7 @@ const ProductDetail = () => {
   const fetchProduct = async () => {
     try {
       setLoading(true)
-      const { data } = await axios.get(`/api/products/${id}`)
+      const { data } = await api.get(`/api/products/${id}`)
       setProduct(data.product)
       if (data.product.sizes?.length > 0) setSelectedSize(data.product.sizes[0])
     } catch (error) {

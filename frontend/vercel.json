@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://efashion-3drf.onrender.com/api/:path*"
+    }
+  ]
+}

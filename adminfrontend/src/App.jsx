@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import api from './config/api'
 import ProductForm from './components/ProductForm'
 import ProductList from './components/ProductList'
 
@@ -14,7 +14,7 @@ function App() {
 
   const fetchProducts = async () => {
     try {
-      const { data } = await axios.get('/api/products')
+      const { data } = await api.get('/api/products')
       setProducts(data.products)
     } catch (error) {
       console.error('Error fetching products:', error)
@@ -30,7 +30,7 @@ function App() {
     if (!window.confirm('Are you sure you want to delete this product?')) return
     
     try {
-      await axios.delete(`/api/products/${id}`)
+      await api.delete(`/api/products/${id}`)
       fetchProducts()
       alert('Product deleted successfully!')
     } catch (error) {
