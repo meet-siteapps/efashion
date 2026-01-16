@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import api from '../config/api'
 import ProductCard from '../components/ProductCard'
+import ProductSkeleton from '../components/ProductSkeleton'
 import AnimatedBackground from '../components/AnimatedBackground'
 
 const Home = () => {
@@ -29,17 +30,6 @@ const Home = () => {
   const filteredProducts = selectedCategory === 'All' 
     ? products 
     : products.filter(p => p.category === selectedCategory)
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-black-primary flex items-center justify-center">
-        <div className="text-center">
-          <div className="w-16 h-16 border-4 border-blue-electric border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-blue-bright text-xl font-medium">Loading...</p>
-        </div>
-      </div>
-    )
-  }
 
   return (
     <div className="min-h-screen bg-black-primary relative overflow-hidden">
@@ -160,7 +150,13 @@ const Home = () => {
             </div>
 
             {/* Products Grid - 2 columns on mobile/tablet */}
-            {filteredProducts.length === 0 ? (
+            {loading ? (
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+                {[...Array(8)].map((_, index) => (
+                  <ProductSkeleton key={index} />
+                ))}
+              </div>
+            ) : filteredProducts.length === 0 ? (
               <div className="text-center py-20">
                 <p className="text-grey-text text-xl">No products found</p>
               </div>

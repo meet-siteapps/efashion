@@ -7,6 +7,7 @@ function App() {
   const [products, setProducts] = useState([])
   const [editingProduct, setEditingProduct] = useState(null)
   const [showForm, setShowForm] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     fetchProducts()
@@ -14,10 +15,13 @@ function App() {
 
   const fetchProducts = async () => {
     try {
+      setLoading(true)
       const { data } = await api.get('/api/products')
       setProducts(data.products)
     } catch (error) {
       console.error('Error fetching products:', error)
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -85,6 +89,7 @@ function App() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         <ProductList 
           products={products}
+          loading={loading}
           onEdit={handleEdit}
           onDelete={handleDelete}
         />

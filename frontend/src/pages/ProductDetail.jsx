@@ -46,7 +46,8 @@ Please provide:
 ✅ Delivery details
 ✅ Payment options
 
-Thank you!`
+Thank you!
+Site : https://efashion-nine.vercel.app/`
 
     const whatsappUrl = `https://wa.me/919327464610?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, '_blank')

@@ -4,8 +4,8 @@ import TShirtIcon from './TShirtIcon'
 
 const ProductCard = ({ product }) => {
   return (
-    <Link to={`/product/${product._id}`} className="block">
-      <div className="group bg-black-card rounded-xl overflow-hidden border border-grey-text/10 hover:border-blue-electric/60 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-electric/20 animate-reveal relative">
+    <Link to={`/product/${product._id}`} className="block h-full">
+      <div className="group bg-black-card rounded-xl overflow-hidden border border-grey-text/10 hover:border-blue-electric/60 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-electric/20 animate-reveal relative h-full flex flex-col">
         {/* Animated Icon Above Card */}
         <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 w-24 h-24 opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:-translate-y-2 z-10">
           {product.category === 'Jackets' ? <JacketIcon /> : <TShirtIcon />}
@@ -70,15 +70,15 @@ const ProductCard = ({ product }) => {
         </div>
         
         {/* Product Info */}
-        <div className="p-4 sm:p-5 relative">
+        <div className="p-4 sm:p-5 relative flex-1 flex flex-col">
           {/* Animated Border Top */}
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-electric to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           
-          <h3 className="text-base sm:text-lg font-semibold text-grey-light mb-2 group-hover:text-blue-bright transition-colors duration-300 line-clamp-2">
+          <h3 className="text-base sm:text-lg font-semibold text-grey-light mb-2 group-hover:text-blue-bright transition-colors duration-300 line-clamp-2 min-h-[3rem]">
             {product.name}
           </h3>
           
-          <p className="text-grey-text text-xs sm:text-sm mb-3 line-clamp-2">
+          <p className="text-grey-text text-xs sm:text-sm mb-3 line-clamp-2 min-h-[2.5rem]">
             {product.description}
           </p>
           
@@ -100,22 +100,24 @@ const ProductCard = ({ product }) => {
           </div>
           
           {/* Sizes with Hover Effect */}
-          {product.sizes && product.sizes.length > 0 && (
-            <div className="flex flex-wrap gap-1.5">
-              {product.sizes.slice(0, 5).map((size, idx) => (
-                <span 
-                  key={idx} 
-                  className="text-xs bg-black-secondary text-grey-text px-2 py-1 rounded border border-grey-text/20 group-hover:border-blue-electric/40 group-hover:text-blue-light transition-all duration-300 hover:scale-110"
-                  style={{ transitionDelay: `${idx * 50}ms` }}
-                >
-                  {size}
-                </span>
-              ))}
-              {product.sizes.length > 5 && (
-                <span className="text-xs text-grey-text self-center">+{product.sizes.length - 5}</span>
-              )}
-            </div>
-          )}
+          <div className="mt-auto">
+            {product.sizes && product.sizes.length > 0 && (
+              <div className="flex flex-wrap gap-1.5 min-h-[2rem]">
+                {product.sizes.slice(0, 5).map((size, idx) => (
+                  <span 
+                    key={idx} 
+                    className="text-xs bg-black-secondary text-grey-text px-2 py-1 rounded border border-grey-text/20 group-hover:border-blue-electric/40 group-hover:text-blue-light transition-all duration-300 hover:scale-110"
+                    style={{ transitionDelay: `${idx * 50}ms` }}
+                  >
+                    {size}
+                  </span>
+                ))}
+                {product.sizes.length > 5 && (
+                  <span className="text-xs text-grey-text self-center">+{product.sizes.length - 5}</span>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </Link>
