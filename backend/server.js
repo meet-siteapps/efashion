@@ -13,10 +13,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // MongoDB Connection
-// mongoose.connect(process.env.MONGODB_URI)
-mongoose.connect(
-  'mongodb+srv://Fash123:Fash123@mensfashion.8f2sv8r.mongodb.net/mensfashion'
-)
+mongoose.connect(process.env.MONGO_URI)
+// mongoose.connect(
+  // 'mongodb+srv://Fash123:Fash123@mensfashion.8f2sv8r.mongodb.net/mensfashion'
+//)
   .then(() => console.log('✅ MongoDB Connected'))
   .catch(err => console.error('❌ MongoDB Connection Error:', err));
 
