@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import api from '../config/api'
 import ProductCard from '../components/ProductCard'
 import ProductSkeleton from '../components/ProductSkeleton'
+import ProductRoller from '../components/ProductRoller'
 import AnimatedBackground from '../components/AnimatedBackground'
 
 const Home = () => {
@@ -82,18 +83,13 @@ const Home = () => {
                 Contact Us
               </a>
             </div>
-            
-            {/* Scroll Indicator with Animation */}
-            <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
-              <div className="flex flex-col items-center gap-2">
-                <span className="text-grey-text text-sm">Scroll</span>
-                <svg className="w-6 h-6 text-blue-electric animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                </svg>
-              </div>
-            </div>
           </div>
         </section>
+
+        {/* Product Roller Section */}
+        {!loading && products.length > 0 && (
+          <ProductRoller products={products} />
+        )}
 
         {/* Brand Values Section with Animations */}
         <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-grey-text/10 relative">
