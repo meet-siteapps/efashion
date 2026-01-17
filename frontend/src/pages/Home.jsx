@@ -86,9 +86,11 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Product Roller Section */}
+        {/* Product Roller Section - Hidden on mobile */}
         {!loading && products.length > 0 && (
-          <ProductRoller products={products} />
+          <div className="hidden md:block">
+            <ProductRoller products={products} />
+          </div>
         )}
 
         {/* Brand Values Section with Animations */}
@@ -145,10 +147,10 @@ const Home = () => {
               ))}
             </div>
 
-            {/* Products Grid - 2 columns on mobile/tablet */}
+            {/* Products Grid - Optimized for best visual balance */}
             {loading ? (
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-                {[...Array(8)].map((_, index) => (
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
+                {[...Array(10)].map((_, index) => (
                   <ProductSkeleton key={index} />
                 ))}
               </div>
@@ -157,7 +159,7 @@ const Home = () => {
                 <p className="text-grey-text text-xl">No products found</p>
               </div>
             ) : (
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
                 {filteredProducts.map((product, index) => (
                   <div key={product._id} style={{ animationDelay: `${index * 0.05}s` }}>
                     <ProductCard product={product} />
