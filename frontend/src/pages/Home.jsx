@@ -4,6 +4,7 @@ import ProductCard from '../components/ProductCard'
 import ProductSkeleton from '../components/ProductSkeleton'
 import ProductRoller from '../components/ProductRoller'
 import AnimatedBackground from '../components/AnimatedBackground'
+import Hero from '../components/Hero'
 
 const Home = () => {
   const [products, setProducts] = useState([])
@@ -33,58 +34,14 @@ const Home = () => {
     : products.filter(p => p.category === selectedCategory)
 
   return (
-    <div className="min-h-screen bg-black-primary relative overflow-hidden">
+    <div className="min-h-screen bg-black-primary relative overflow-hidden page-container">
       {/* Animated Background */}
       <AnimatedBackground />
       
       {/* Content */}
       <div className="relative z-10">
-        {/* Full-Screen Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20">
-          {/* Animated Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-electric/10 via-transparent to-blue-bright/10 animate-gradient-shift bg-200%"></div>
-          
-          {/* Floating Elements */}
-          <div className="absolute top-1/4 left-10 w-20 h-20 border-2 border-blue-electric/20 rounded-full animate-float"></div>
-          <div className="absolute bottom-1/4 right-10 w-16 h-16 border-2 border-blue-bright/20 rounded-lg animate-float-slow"></div>
-          
-          <div className="relative z-10 max-w-5xl mx-auto text-center">
-            {/* Main Headline */}
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 animate-fade-in">
-              <span className="block text-grey-light mb-2">Premium</span>
-              <span className="block bg-gradient-to-r from-blue-electric via-blue-bright to-blue-light bg-clip-text text-transparent animate-gradient-shift bg-200%">
-                Men's Fashion
-              </span>
-            </h1>
-            
-            {/* Subheadline */}
-            <p className="text-grey-text text-lg sm:text-xl md:text-2xl mb-10 max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: '0.2s' }}>
-              Discover curated collections of premium jackets and t-shirts. 
-              <span className="text-grey-light block mt-2">Elevate your style.</span>
-            </p>
-            
-            {/* CTA Buttons with Enhanced Glow */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up" style={{ animationDelay: '0.4s' }}>
-              <a 
-                href="#products"
-                className="group relative px-8 py-4 bg-blue-electric hover:bg-blue-bright rounded-lg font-semibold text-white transition-all duration-300 hover:shadow-2xl hover:shadow-blue-electric/60 hover:scale-105 overflow-hidden"
-              >
-                <span className="relative z-10">Explore Collection</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-bright to-blue-light opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-gradient-shift bg-200%"></div>
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 animate-pulse-glow"></div>
-              </a>
-              
-              <a 
-                href="https://wa.me/919327464610"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 py-4 bg-transparent border-2 border-blue-electric hover:bg-blue-electric/10 rounded-lg font-semibold text-blue-electric hover:text-blue-bright transition-all duration-300 hover:border-blue-bright hover:shadow-lg hover:shadow-blue-electric/30"
-              >
-                Contact Us
-              </a>
-            </div>
-          </div>
-        </section>
+        {/* Hero Section with Instagram Story Interface */}
+        <Hero products={products} />
 
         {/* Product Roller Section - Hidden on mobile */}
         {!loading && products.length > 0 && (
