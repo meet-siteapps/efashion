@@ -66,7 +66,7 @@ Please provide:
 Thank you!
 Site : https://efashion-nine.vercel.app/`
 
-    const whatsappUrl = `https://wa.me/919327464610?text=${encodeURIComponent(message)}`
+    const whatsappUrl = `https://wa.me/917990710774?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, '_blank')
   }
 

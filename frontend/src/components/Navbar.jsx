@@ -24,28 +24,41 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 sm:h-20">
           <Link to="/" className="flex items-center space-x-2 group">
-            <div className="text-xl sm:text-2xl font-bold">
-              <span 
-                className="transition-colors duration-300"
-                style={{ color: '#E5E5E5' }}
-                onMouseEnter={(e) => e.target.style.color = '#3B82F6'}
-                onMouseLeave={(e) => e.target.style.color = '#E5E5E5'}
-              >
-                STREET
-              </span>
-              <span 
-                className="ml-2 transition-colors duration-300"
-                style={{ color: '#2563EB' }}
-                onMouseEnter={(e) => e.target.style.color = '#3B82F6'}
-                onMouseLeave={(e) => e.target.style.color = '#2563EB'}
-              >
-                LUXURY
-              </span>
+            <div className="flex items-center space-x-3">
+              {/* Animated Logo Icon */}
+              <div className="relative">
+                <div className="w-10 h-10 bg-gradient-to-br from-blue-electric to-blue-bright rounded-lg flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-12 shadow-lg shadow-blue-electric/30">
+                  <span className="text-white font-bold text-lg">S</span>
+                </div>
+                <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-pulse"></div>
+              </div>
+              
+              {/* Store Name */}
+              <div className="text-xl sm:text-2xl font-bold">
+                <span 
+                  className="transition-all duration-500 bg-gradient-to-r from-grey-light to-blue-light bg-clip-text text-transparent animate-text-shimmer"
+                  style={{ 
+                    backgroundSize: '200% 100%',
+                    animation: 'textShimmer 3s ease-in-out infinite'
+                  }}
+                >
+                  Sam's
+                </span>
+                <span 
+                  className="ml-2 transition-all duration-500 bg-gradient-to-r from-blue-electric via-blue-bright to-purple-400 bg-clip-text text-transparent font-extrabold"
+                  style={{ 
+                    backgroundSize: '200% 100%',
+                    animation: 'textShimmer 3s ease-in-out infinite 0.5s'
+                  }}
+                >
+                  Style
+                </span>
+              </div>
             </div>
           </Link>
           
           <a 
-            href="https://wa.me/919327464610" 
+            href="https://wa.me/917990710774" 
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg transition-all duration-300 font-bold text-sm sm:text-base"

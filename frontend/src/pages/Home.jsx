@@ -140,7 +140,7 @@ const Home = () => {
                 Get instant updates on new arrivals and exclusive offers via WhatsApp
               </p>
               <a 
-                href="https://wa.me/919327464610"
+                href="https://wa.me/917990710774"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-3 bg-green-600 hover:bg-green-700 px-8 py-4 rounded-lg text-white font-semibold transition-all duration-300 hover:scale-105 shadow-lg shadow-green-600/40 hover:shadow-2xl hover:shadow-green-600/60 relative z-10"
@@ -158,12 +158,12 @@ const Home = () => {
         <footer className="border-t border-grey-text/10 py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto text-center">
             <div className="text-2xl font-bold mb-4">
-              <span className="text-grey-light">MEN'S</span>
-              <span className="bg-gradient-to-r from-blue-electric to-blue-bright bg-clip-text text-transparent ml-1">FASHION</span>
+              <span className="text-grey-light">SAM'S</span>
+              <span className="bg-gradient-to-r from-blue-electric to-blue-bright bg-clip-text text-transparent ml-1">STYLE</span>
             </div>
             <p className="text-grey-text mb-6">Premium menswear for the modern gentleman</p>
             <div className="flex justify-center space-x-6 mb-6">
-              <a href="https://wa.me/919327464610" className="text-grey-text hover:text-blue-electric transition-colors">
+              <a href="https://wa.me/917990710774" className="text-grey-text hover:text-blue-electric transition-colors">
                 WhatsApp
               </a>
               <span className="text-grey-text/30">|</span>
@@ -172,7 +172,7 @@ const Home = () => {
               </a>
             </div>
             <p className="text-grey-text/60 text-sm">
-              © 2024 Men's Fashion. All rights reserved.
+              © 2026 Sam's Style. All rights reserved. | Developed by meet
             </p>
           </div>
         </footer>

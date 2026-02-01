@@ -730,3 +730,43 @@ html {
     font-size: 11px;
   }
 }
+/* Navbar Brand Animations */
+@keyframes textShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-text-shimmer {
+  background: linear-gradient(
+    90deg,
+    #E5E5E5 0%,
+    #3B82F6 25%,
+    #60A5FA 50%,
+    #3B82F6 75%,
+    #E5E5E5 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShimmer 3s ease-in-out infinite;
+}
+
+/* Logo hover effects */
+.group:hover .animate-text-shimmer {
+  animation-duration: 1s;
+}
+
+/* Additional brand styling */
+.brand-glow {
+  filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3));
+}
+
+.group:hover .brand-glow {
+  filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.6));
+  transition: filter 0.3s ease;
+}

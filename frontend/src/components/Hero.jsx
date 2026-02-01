@@ -121,7 +121,7 @@ const Hero = ({ products = [] }) => {
               </a>
               
               <a 
-                href="https://wa.me/919327464610"
+                href="https://wa.me/917990710774"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary group text-xs sm:text-sm py-2 px-4 sm:py-3 sm:px-6 lg:py-3 lg:px-6"
@@ -187,7 +187,7 @@ const Hero = ({ products = [] }) => {
                         <span className="text-white font-bold">CS</span>
                       </div>
                       <div className="story-meta">
-                        <h3 className="story-title">ClothingStore</h3>
+                        <h3 className="story-title">Sam's Style</h3>
                         <p className="story-time">2h ago</p>
                       </div>
                     </div>
