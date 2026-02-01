@@ -3,55 +3,10 @@ import { useState, useEffect } from 'react'
 
 const Hero = ({ products = [] }) => {
   const [isVisible, setIsVisible] = useState(false)
-  const [currentStory, setCurrentStory] = useState(0)
 
   useEffect(() => {
     setIsVisible(true)
   }, [])
-
-  // Use actual products from the site, fallback to sample data if no products
-  const productStories = products.length > 0 
-    ? products.slice(0, 6).map(product => ({
-        id: product._id,
-        name: product.name,
-        image: product.image,
-        price: `₹${product.price.toLocaleString()}`,
-        category: product.category
-      }))
-    : [
-        {
-          id: 1,
-          name: 'Premium T-Shirts',
-          image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=400&fit=crop&crop=center',
-          price: '₹999',
-          category: 'Casual'
-        },
-        {
-          id: 2,
-          name: 'Designer Jeans',
-          image: 'https://images.unsplash.com/photo-1542272604-787c3835535d?w=300&h=400&fit=crop&crop=center',
-          price: '₹2499',
-          category: 'Denim'
-        },
-        {
-          id: 3,
-          name: 'Leather Jackets',
-          image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=300&h=400&fit=crop&crop=center',
-          price: '₹4999',
-          category: 'Outerwear'
-        }
-      ]
-
-  // Auto-advance stories
-  useEffect(() => {
-    if (productStories.length === 0) return
-    
-    const timer = setInterval(() => {
-      setCurrentStory((prev) => (prev + 1) % productStories.length)
-    }, 3000) // Change every 3 seconds
-
-    return () => clearInterval(timer)
-  }, [productStories.length])
 
   return (
     <section className="relative min-h-screen overflow-hidden flex items-center justify-center py-8 sm:py-6 lg:py-8 pt-24 sm:pt-20 lg:pt-8">
@@ -150,76 +105,54 @@ const Hero = ({ products = [] }) => {
             </div>
           </div>
 
-          {/* Instagram Story Style Product Showcase - Order 1 on mobile (above text), Order 2 on desktop (right side) */}
+          {/* Video Story Style Showcase - Order 1 on mobile (above text), Order 2 on desktop (right side) */}
           <div className={`relative transition-all duration-1000 delay-300 ease-out ${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
           } flex items-center justify-center order-1 lg:order-2 py-2 lg:py-8 mt-4 sm:mt-2 lg:mt-0`}>
             
-            {productStories.length > 0 && (
-              <div className="story-container">
-                {/* Story Progress Bars */}
-                <div className="story-progress">
-                  {productStories.map((_, index) => (
-                    <div key={index} className="progress-bar">
-                      <div className={`progress-fill ${
-                        index === currentStory ? 'active' : 
-                        index < currentStory ? 'completed' : ''
-                      }`}></div>
-                    </div>
-                  ))}
+            <div className="story-container">
+              {/* Story Content with Video */}
+              <div className="story-content">
+                <div className="story-image-container">
+                  <video
+                    src="/clothes-video.mp4"
+                    className="story-video"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+                  <div className="story-gradient"></div>
                 </div>
 
-                {/* Story Content */}
-                <div className="story-content">
-                  <div className="story-image-container">
-                    <img
-                      src={productStories[currentStory].image}
-                      alt={productStories[currentStory].name}
-                      className="story-image"
-                    />
-                    <div className="story-gradient"></div>
-                  </div>
-
-                  {/* Story Info Overlay */}
-                  <div className="story-info">
-                    <div className="story-header">
-                      <div className="story-avatar">
-                        <span className="text-white font-bold">CS</span>
-                      </div>
-                      <div className="story-meta">
-                        <h3 className="story-title">Sam's Style</h3>
-                        <p className="story-time">2h ago</p>
-                      </div>
+                {/* Story Info Overlay */}
+                <div className="story-info">
+                  <div className="story-header">
+                    <div className="story-avatar">
+                      <span className="text-white font-bold">SS</span>
                     </div>
-
-                    <div className="story-product-info">
-                      <div className="product-badge">
-                        <span className="category-tag">{productStories[currentStory].category}</span>
-                      </div>
-                      <h4 className="product-name">{productStories[currentStory].name}</h4>
-                      <p className="product-price">{productStories[currentStory].price}</p>
-                      <button className="story-cta">
-                        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                        </svg>
-                        Shop Now
-                      </button>
+                    <div className="story-meta">
+                      <h3 className="story-title">Sam's Style</h3>
+                      <p className="story-time">2h ago</p>
                     </div>
                   </div>
 
-                  {/* Navigation Dots */}
-                  <div className="story-dots">
-                    {productStories.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setCurrentStory(index)}
-                        className={`story-dot ${index === currentStory ? 'active' : ''}`}
-                      />
-                    ))}
+                  <div className="story-product-info">
+                    <div className="product-badge">
+                      <span className="category-tag">Fashion Collection</span>
+                    </div>
+                    <h4 className="product-name">Premium Clothing</h4>
+                    <p className="product-price">Starting ₹999</p>
+                    <button className="story-cta">
+                      <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                      </svg>
+                      Shop Now
+                    </button>
                   </div>
                 </div>
               </div>
-            )}
+            </div>
           </div>
         </div>
       </div>
