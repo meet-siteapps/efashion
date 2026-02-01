@@ -88,22 +88,7 @@ const Hero = ({ products = [] }) => {
               </a>
             </div>
 
-            {/* Quick Stats */}
-            <div className="flex items-center justify-center lg:justify-start space-x-3 sm:space-x-4 lg:space-x-6 text-xs animate-stats-appear">
-              <div className="text-center">
-                <div className="text-sm sm:text-base lg:text-lg xl:text-xl font-bold text-blue-400 animate-counter">50K+</div>
-                <div className="text-gray-400 text-xs">Customers</div>
-              </div>
-              <div className="text-center">
-                <div className="text-sm sm:text-base lg:text-lg xl:text-xl font-bold text-blue-400 animate-counter">200+</div>
-                <div className="text-gray-400 text-xs">Products</div>
-              </div>
-              <div className="text-center">
-                <div className="text-sm sm:text-base lg:text-lg xl:text-xl font-bold text-blue-400 animate-counter">99%</div>
-                <div className="text-gray-400 text-xs">Satisfaction</div>
-              </div>
-            </div>
-          </div>
+            
 
           {/* Video Story Style Showcase - Order 1 on mobile (above text), Order 2 on desktop (right side) */}
           <div className={`relative transition-all duration-1000 delay-300 ease-out ${
@@ -142,7 +127,6 @@ const Hero = ({ products = [] }) => {
                       <span className="category-tag">Fashion Collection</span>
                     </div>
                     <h4 className="product-name">Premium Clothing</h4>
-                    <p className="product-price">Starting ₹999</p>
                     <button className="story-cta">
                       <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
