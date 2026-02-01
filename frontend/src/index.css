@@ -507,16 +507,25 @@ html {
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .story-container {
-    width: 220px;
-    height: 380px;
+    width: 280px;
+    height: 480px;
     margin-top: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .story-container {
+    width: 300px;
+    height: 500px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .story-container {
-    width: 200px;
-    height: 340px;
+    width: 260px;
+    height: 440px;
     margin-top: 1.5rem;
   }
   
@@ -690,6 +699,8 @@ html {
 /* Additional mobile fixes for story positioning */
 @media (max-width: 640px) {
   .story-container {
+    width: 300px;
+    height: 500px;
     margin-top: 2rem;
     margin-bottom: 1rem;
   }
@@ -697,8 +708,8 @@ html {
 
 @media (max-width: 375px) {
   .story-container {
-    width: 180px;
-    height: 320px;
+    width: 240px;
+    height: 420px;
     margin-top: 2.5rem;
   }
   
