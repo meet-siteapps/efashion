@@ -162,9 +162,21 @@ const Home = () => {
               <span className="bg-gradient-to-r from-blue-electric to-blue-bright bg-clip-text text-transparent ml-1">STYLE</span>
             </div>
             <p className="text-grey-text mb-6">Premium menswear for the modern gentleman</p>
+            
+            {/* Address and Contact Info */}
+            <div className="mb-6 space-y-2">
+              <p className="text-grey-text text-sm">
+                📍 G41 The Palladium Hub, Yogi Chowk, Surat, Gujarat
+              </p>
+            </div>
+            
             <div className="flex justify-center space-x-6 mb-6">
               <a href="https://wa.me/917990710774" className="text-grey-text hover:text-blue-electric transition-colors">
                 WhatsApp
+              </a>
+              <span className="text-grey-text/30">|</span>
+              <a href="https://instagram.com/sam_s_style_" target="_blank" rel="noopener noreferrer" className="text-grey-text hover:text-blue-electric transition-colors">
+                Instagram
               </a>
               <span className="text-grey-text/30">|</span>
               <a href="#products" className="text-grey-text hover:text-blue-electric transition-colors">
