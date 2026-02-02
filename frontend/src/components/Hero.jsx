@@ -87,12 +87,7 @@ const Hero = ({ products = [] }) => {
                 Contact Us
               </a>
             </div>
-<<<<<<< HEAD
           </div>
-=======
-
-            
->>>>>>> 5a8be4d8ee31f93180efe2d9bb587993eece1e05
 
           {/* Video Story Style Showcase - Order 1 on mobile (above text), Order 2 on desktop (right side) */}
           <div className={`relative transition-all duration-1000 delay-300 ease-out ${
