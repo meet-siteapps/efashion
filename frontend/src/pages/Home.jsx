@@ -9,7 +9,7 @@ import Hero from '../components/Hero'
 const Home = () => {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
-  const [selectedCategory, setSelectedCategory] = useState('All')
+  const [selectedCategory, setSelectedCategory] = useState('Jackets')
 
   useEffect(() => {
     fetchProducts()
@@ -27,11 +27,14 @@ const Home = () => {
     }
   }
 
-  const categories = ['All', 'Jackets', 'T-Shirts']
+  const categories = ['Jackets', 'Hoodies']
   
-  const filteredProducts = selectedCategory === 'All' 
-    ? products 
-    : products.filter(p => p.category === selectedCategory)
+  // Calculate item counts for each category
+  const getCategoryCount = (category) => {
+    return products.filter(p => p.category === category).length
+  }
+  
+  const filteredProducts = products.filter(p => p.category === selectedCategory)
 
   return (
     <div className="min-h-screen bg-black-primary relative overflow-hidden page-container">
@@ -88,20 +91,29 @@ const Home = () => {
             </div>
 
             {/* Category Filter with Enhanced Styling */}
-            <div className="flex justify-center gap-3 mb-12">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`px-6 py-2.5 rounded-lg font-medium transition-all duration-300 ${
-                    selectedCategory === category
-                      ? 'bg-gradient-to-r from-blue-electric to-blue-bright text-white shadow-lg shadow-blue-electric/40 scale-105'
-                      : 'bg-black-card text-grey-text hover:text-grey-light hover:bg-black-secondary border border-grey-text/20 hover:border-blue-electric/40'
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
+            <div className="flex justify-between items-center mb-12">
+              <div className="flex justify-center gap-3 flex-1">
+                {categories.map((category) => (
+                  <button
+                    key={category}
+                    onClick={() => setSelectedCategory(category)}
+                    className={`px-6 py-2.5 rounded-lg font-medium transition-all duration-300 ${
+                      selectedCategory === category
+                        ? 'bg-gradient-to-r from-blue-electric to-blue-bright text-white shadow-lg shadow-blue-electric/40 scale-105'
+                        : 'bg-black-card text-grey-text hover:text-grey-light hover:bg-black-secondary border border-grey-text/20 hover:border-blue-electric/40'
+                    }`}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+              
+              {/* Circular Count Badge */}
+              <div className="w-12 h-12 bg-black-card border-2 border-blue-electric/30 rounded-full flex items-center justify-center shadow-lg">
+                <span className="text-blue-electric font-bold text-lg">
+                  {getCategoryCount(selectedCategory)}
+                </span>
+              </div>
             </div>
 
             {/* Products Grid - Optimized for best visual balance */}
