@@ -158,7 +158,7 @@ const ProductForm = ({ product, onClose }) => {
               onBlur={(e) => e.target.style.borderColor = 'rgba(160, 160, 160, 0.2)'}
             >
               <option value="Jackets">Jackets</option>
-              <option value="T-Shirts">T-Shirts</option>
+              <option value="Hoodies">Hoodies</option>
             </select>
           </div>
 
