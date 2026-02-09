@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import api from '../config/api'
+import ImageUpload from './ImageUpload'
 
 const ProductForm = ({ product, onClose }) => {
   const [formData, setFormData] = useState({
@@ -33,6 +34,13 @@ const ProductForm = ({ product, onClose }) => {
     setFormData(prev => ({
       ...prev,
       [name]: type === 'checkbox' ? checked : value
+    }))
+  }
+
+  const handleImageUpload = (url) => {
+    setFormData(prev => ({
+      ...prev,
+      image: url
     }))
   }
 
@@ -242,20 +250,25 @@ const ProductForm = ({ product, onClose }) => {
             </div>
           </div>
 
-          {/* Image URL */}
+          {/* Image Upload Component */}
+          <ImageUpload 
+            onUploadSuccess={handleImageUpload}
+            currentImage={formData.image}
+          />
+
+          {/* OR Direct URL Input */}
           <div>
             <label 
               className="block font-semibold mb-2"
               style={{ color: '#E5E5E5' }}
             >
-              Image URL *
+              Or Enter Image URL Directly
             </label>
             <input
               type="url"
               name="image"
               value={formData.image}
               onChange={handleChange}
-              required
               className="w-full rounded-lg px-4 py-3 focus:outline-none transition-all"
               style={{
                 background: '#0A0A0A',
@@ -266,16 +279,9 @@ const ProductForm = ({ product, onClose }) => {
               onBlur={(e) => e.target.style.borderColor = 'rgba(160, 160, 160, 0.2)'}
               placeholder="https://example.com/image.jpg"
             />
-            {formData.image && (
-              <div className="mt-3">
-                <img 
-                  src={formData.image} 
-                  alt="Preview" 
-                  className="w-32 h-32 object-cover rounded-lg"
-                  style={{ border: '1px solid rgba(160, 160, 160, 0.2)' }}
-                />
-              </div>
-            )}
+            <p className="text-xs mt-2" style={{ color: '#A0A0A0' }}>
+              You can upload an image above OR paste a direct image URL here
+            </p>
           </div>
 
           {/* Sizes */}
